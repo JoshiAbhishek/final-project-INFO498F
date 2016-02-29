@@ -1,0 +1,1 @@
+# Creates a function that returns a line plot of given data

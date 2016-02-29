@@ -5,14 +5,16 @@ shinyUI(fluidPage(
   sidebarLayout(
     
     sidebarPanel(
-      # Inputs excluded for brevity
+      sliderInput("obs", "Number of observations:",  
+                  min = 1, max = 1000, value = 500)
     ),
     
     mainPanel(
       tabsetPanel(
-        tabPanel("Plot", plotOutput("plot")), 
-        tabPanel("Summary", verbatimTextOutput("summary")), 
-        tabPanel("Table", tableOutput("table"))
+        tabPanel("Map", plotOutput("map")), 
+        tabPanel("Analysis", verbatimTextOutput("analysis")), 
+        tabPanel("Line Plot", tableOutput("plot")),
+        tabPanel("Bar Graph", tableOutput("bar_graph"))
       )
     )
   )
