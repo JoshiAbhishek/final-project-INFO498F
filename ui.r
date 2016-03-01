@@ -42,6 +42,22 @@ shinyUI(navbarPage("Top Leading Causes of Death in the United States from 1999-2
      sidebarLayout(
        
        sidebarPanel(
+         # Widget 1: select box for cause
+         selectInput("year", label = h3("Choose a year:"), 
+                     choices = list("1999" = '1999', "2000" = '2000', "2001" = '2001', "2002" = '2002',
+                                    "2003" = '2003', "2004" = '2004', "2005" = '2005', "2006" = '2006',
+                                    "2007" = '2007', "2008" = '2008', "2009" = '2009', "2010" = '2010',
+                                    "2011" = '2011', "2012" = '2012', "2013" = '2013'), 
+                     selected = "1999"),
+         
+         # Widget 2: Select box for year
+         selectInput("causes", label = h3("Choose a cause of death:"), 
+                     choices = list("All Causes" = 'All Causes', "Alzheimer's disease" = "Alzheimer's disease", "Cancer" = 'Cancer', 
+                                    "Chronic liver disease and cirrhosis" = 'Chronic liver disease and cirrhosis', "Chronic Lower Respiratory Disease (CLRD)" = 'CLRD',
+                                    "Diabetes" = 'Diabetes', "Diseases of Heart" = 'Diseases of Heart', "Essential hypertension and hypertensive renal disease" = 'Essential hypertension and hypertensive renal disease',
+                                    "Homicide" = 'Homicide', "Influenza and pneumonia" = 'Influenza and pneumonia', "Kidney Disease" = 'Kidney Disease', "Parkinson's disease" = "Parkinson's disease", 
+                                    "Pneumonitis due to solids and liquids" = 'Pneumonitis due to solids and liquids', "Septicemia" = 'Septicemia', "Stroke" = 'Stroke', "Suicide" = 'Suicide', "Unintentional Injuries" = 'Unintentional Injuries') 
+         )
        ),
        
        mainPanel(
