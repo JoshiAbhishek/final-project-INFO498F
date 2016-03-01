@@ -1,6 +1,4 @@
 # Creates a function that returns a line plot of given data
-library(plotly)
-library(dplyr)
 
 setwd('~/Documents/INFO498F/final-project-INFO498F')
 
@@ -14,5 +12,3 @@ make_line_plot <- function(df, cause, location) {
   
   return(p)
 }
-
-make_line_plot(top_deaths, 'Cancer', 'United States')
