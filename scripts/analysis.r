@@ -7,6 +7,4 @@ analysis <- function(dataset) {
   
   unique_causes_of_death <- data %>% distinct(CAUSE_NAME) %>% select(CAUSE_NAME)
   print(unique_causes_of_death)
-  
-  
 }
