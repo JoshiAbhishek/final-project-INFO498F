@@ -1,5 +1,7 @@
 # Final Project Shiny UI
-
+library(plotly)
+library(dplyr)
+library(shiny)
 shinyUI(navbarPage("Top Leading Causes of Death in the United States from 1999-2013",
   tabPanel("Plot",
   
