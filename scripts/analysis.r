@@ -1,11 +1,10 @@
-install.packages("dplyr")
 library("dplyr")
 
 analysis <- function(dataset) {
 
-  #data <- dataset
+  data <- dataset
   
-  data <- read.csv("C:/Users/Abhishek/Documents/GitHub/final-project-INFO498F/data/Top_Ten_US_Causes_Of_Death.csv")
+  #data <- read.csv("C:/Users/Abhishek/Documents/GitHub/final-project-INFO498F/data/Top_Ten_US_Causes_Of_Death.csv")
   
   data[,5] <- as.numeric(as.character(data[,5]))
   
@@ -75,12 +74,14 @@ analysis <- function(dataset) {
     return(min_death_cause_growth)
   }
   
-  Build_Yearly_Deaths_Chart <- function(year) {
-    new_data <- deaths_filtered %>% filter(YEAR == year)
-    
-    plot_ly(new_data, labels = CAUSE_NAME, values = DEATHS, type = "pie")
-      %>% layout(title = "Deaths By Cause Name") %>%
-      return()
-  }
+}
+
+Build_Yearly_Deaths_Chart <- function(data, year) {
+  deaths_filtered <- data %>% filter(STATE == 'United States') %>% select(YEAR, CAUSE_NAME, DEATHS) %>% filter(CAUSE_NAME != 'All Causes')
   
+  new_data <- deaths_filtered %>% filter(YEAR == year)
+  
+  plot_ly(new_data, labels = CAUSE_NAME, values = DEATHS, type = "pie") %>%
+    layout(title = "Deaths By Cause Name") %>%
+    return()
 }
