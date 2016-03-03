@@ -44,15 +44,14 @@ shinyUI(navbarPage("Top Leading Causes of Death in the United States from 1999-2
      sidebarLayout(
        
        sidebarPanel(
-         # Widget 1: select box for cause
-         selectInput("year", label = h3("Choose a year:"), 
-                     choices = list("1999" = '1999', "2000" = '2000', "2001" = '2001', "2002" = '2002',
-                                    "2003" = '2003', "2004" = '2004', "2005" = '2005', "2006" = '2006',
-                                    "2007" = '2007', "2008" = '2008', "2009" = '2009', "2010" = '2010',
-                                    "2011" = '2011', "2012" = '2012', "2013" = '2013'), 
-                     selected = "1999"),
+         # Widget 1: slider input for year
+         sliderInput("year", label = h3("Year"), min = 1999, 
+          max = 2013, value = 1, sep = "", animate= animationOptions(interval=500, loop=TRUE)
+         ),
+           
          
-         # Widget 2: Select box for year
+         
+         # Widget 2: Select box for cause
          selectInput("causes", label = h3("Choose a cause of death:"), 
                      choices = list("All Causes" = 'All Causes', "Alzheimer's disease" = "Alzheimer's disease", "Cancer" = 'Cancer', 
                                     "Chronic liver disease and cirrhosis" = 'Chronic liver disease and cirrhosis', "Chronic Lower Respiratory Disease (CLRD)" = 'CLRD',

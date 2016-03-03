@@ -19,6 +19,7 @@ build_map <- function(data, year, cause){
 
   # specify some map projection/options
   g <- list(
+    bgcolor = "#f8f8ff",
     scope = 'usa',
     projection = list(type = 'albers usa')
   )
