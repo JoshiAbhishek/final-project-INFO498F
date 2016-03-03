@@ -3,15 +3,11 @@ library("dplyr")
 #Questions:
 
 #What have been the leading causes of death in order from 1999 to 2013?
-
 #What causes of death have grown the most in the past 14 years from 1999 to 2013?
-
 #What causes of death have declined the most in the past 14 years from 1999 to 2013?
-
 #What is the proportional relation between causes of death most recently? How has it changed in the past 14 years from 1999 to 2013
 
 #Returns the unique causes of death names
-
 Unique_Death_Causes <- function(data) {
   unique_causes_of_death <-
     data %>% distinct(CAUSE_NAME) %>% select(CAUSE_NAME)
@@ -129,7 +125,7 @@ Build_Yearly_Deaths_Chart <- function(data, year) {
   
   new_data <- deaths_filtered %>% filter(YEAR == year)
   
-  plot_ly(new_data, labels = CAUSE_NAME, values = DEATHS, type = "pie") %>%
+  plot_ly(new_data, labels = CAUSE_NAME, values = DEATHS, type = "pie", hole = ".5", showLegend = "T") %>%
     layout(title = "Deaths By Cause Name") %>%
     return()
 }
