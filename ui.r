@@ -8,6 +8,17 @@ shinyUI(
     
     theme = "styles.css",
     
+    tabPanel("Home",
+             
+             mainPanel(
+               h1("About this project"),
+               p("This informatics (INFO 498F) project is based off of a dataset of death rates for the top leading causes of death in the United States, including mortality patterns from 1999 through 2013, and by state of residence for selected year and cause of death."),
+               p("The data was collected and published by the CDC (Centers for Disease Control and Prevention) and accessed through data.gov."),
+               p("The dataset can be found through this ",  a("data.gov link.", href ="http://catalog.data.gov/dataset/age-adjusted-death-rates-for-the-top-10-leading-causes-of-death-united-states-2013/resource/0e603f1d-31bf-4809-8f10-a994b305b379"))
+               
+             ) 
+    ),
+    
     tabPanel("Plot",
        sidebarLayout(
          
@@ -77,7 +88,7 @@ shinyUI(
   
   ),
   
-  tabPanel("Analysis",
+  tabPanel("Doughnut Chart",
      sidebarLayout(
        
        sidebarPanel(
@@ -91,9 +102,7 @@ shinyUI(
        
        mainPanel(
          plotlyOutput("pie")
-         #verbatimTextOutput("analysis")
        ) 
-       
        
      )
            
@@ -111,16 +120,6 @@ shinyUI(
        
      )
            
-  ),
-  
-  tabPanel("More Information",
-           
-     mainPanel(
-     h1("About this project:"),
-     p("This informatics (INFO 498F) project is based off of a dataset of death rates for the top leading causes of death in the United States, including mortality patterns from 1999 through 2013, and by state of residence for selected year and cause of death."),
-     p("The data was collected and published by the CDC (Centers for Disease Control and Prevention) and accessed through data.gov."),
-     p("The dataset can be found through this ",  a("data.gov link.", href ="http://catalog.data.gov/dataset/age-adjusted-death-rates-for-the-top-10-leading-causes-of-death-united-states-2013/resource/0e603f1d-31bf-4809-8f10-a994b305b379"))
-     
-     ) 
   )
+  
 ))
