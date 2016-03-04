@@ -1,3 +1,5 @@
+/*
+
 @import url(http://fonts.googleapis.com/css?family=Raleway|Lato|Montserrat);
 
 body {
@@ -34,7 +36,6 @@ svg {
 }
 
 .well {
-    /*background-color: rgba(255,255,255,.8);*/
     background-color: white;
     color: darkblue;
     border-radius: .5em;
@@ -50,7 +51,6 @@ svg {
     color: red;
 }
 
-/*Navbar Styles*/
 .navbar {
 	-o-border-radius: 0 !important;
     -webkit-border-radius: 0 !important;
@@ -86,3 +86,4 @@ svg {
 .navbar-brand:hover {
 	color: dodgerblue !important;
 }
+*/
