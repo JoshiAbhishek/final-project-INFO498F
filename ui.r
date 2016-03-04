@@ -4,7 +4,7 @@ library(dplyr)
 library(shiny)
 shinyUI(
   navbarPage(
-    "Top Leading Causes of Death in the United States from 1999-2013",
+    "Leading U.S. Causes of Death (1999-2013)",
     
     theme = "styles.css",
     
