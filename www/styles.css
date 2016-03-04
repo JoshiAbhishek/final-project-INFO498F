@@ -1,9 +1,9 @@
 /*
 
-@import url(http://fonts.googleapis.com/css?family=Raleway|Lato|Montserrat);
+@import url(http://fonts.googleapis.com/css?family=Raleway|Montserrat);
 
 body {
-	font-family: 'Lato', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.5em;
     
 	background-image: -moz-linear-gradient(top, rgba(0,0,0,.5), rgba(0,0,0,.5)), url('./img/background.jpg');
@@ -23,6 +23,29 @@ h1, h2, h3, h4 {
 
 h1, p {
     color: white;
+}
+
+h1 {
+    font-size: 4em;
+    margin-top: .75em;
+    margin-bottom: .75em;
+}
+
+h3 {
+    font-size: 2em;
+}
+
+p {
+    margin-bottom: 1em;
+    font-size: 1.5em;
+}
+
+a {
+    color: lightskyblue;
+}
+
+a:hover {
+    color: deepskyblue;
 }
 
 .svg-container {
@@ -49,6 +72,8 @@ svg {
 
 .selectize-input .item {
     color: red;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.25em;
 }
 
 .navbar {
@@ -59,7 +84,6 @@ svg {
     font-family: sans-serif;
     padding-top: 1em;
     padding-bottom: 1em;
-	margin-bottom: 2em;
 	background-color: white;
     border: none;
 }
@@ -70,8 +94,14 @@ svg {
 	font-family: 'Montserrat', sans-serif;
 }
 
-.nav > li > a:active {
-    color: midnightblue !important;
+.navbar-nav > .active > a,
+.navbar-nav > .active > a:focus {
+    color: dodgerblue !important;
+    border-radius: .5em;
+    background-color: transparent !important;
+    border-width: .2em;
+    border-color: dodgerblue;
+    border-style: solid;
 }
 
 .nav > li > a:hover {
@@ -83,7 +113,4 @@ svg {
 	color: midnightblue !important;
 }
 
-.navbar-brand:hover {
-	color: dodgerblue !important;
-}
 */
