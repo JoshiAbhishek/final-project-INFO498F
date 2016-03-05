@@ -131,7 +131,7 @@ Build_Yearly_Deaths_Chart <- function(data, year) {
     return()
 }
 
-
+#Builds a bar chart of total deaths by cause name for 1999-2013
 Build_Total_Death_Chart <-function(data) {
   data[,5] <- as.numeric(as.character(data[,5]))
   
@@ -149,6 +149,7 @@ Build_Total_Death_Chart <-function(data) {
     return()
 }
 
+#Builds a bar chart for the death rate per year
 Build_Deaths_By_Year_Bar_Chart <- function(data, year) {
   deaths_filtered <-
     data %>% filter(STATE == 'United States') %>%
@@ -158,5 +159,18 @@ Build_Deaths_By_Year_Bar_Chart <- function(data, year) {
   
   plot_ly(new_data, x = CAUSE_NAME, y = DEATHS, type = "bar", marker = list(color = toRGB("orange"))) %>%
     layout(title = "Total Deaths By Cause") %>%
+    return()
+}
+
+#Builds a bar chart for every year's death rate per cause
+Build_Total_Bar_Chart <- function(data) {
+  data[,5] <- as.numeric(as.character(data[,5]))
+  
+  deaths_filtered <-
+    data %>% filter(STATE == 'United States') %>%
+    select(YEAR, CAUSE_NAME, DEATHS) %>% filter(CAUSE_NAME != 'All Causes')
+  
+  plot_ly(deaths_filtered, x = YEAR, y = DEATHS, type = "bar") %>%
+    layout(barmode = "stack") %>%
     return()
 }

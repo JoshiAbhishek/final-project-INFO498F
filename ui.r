@@ -4,7 +4,7 @@ library(dplyr)
 library(shiny)
 shinyUI(
   navbarPage(
-    "Leading U.S. Causes of Death (1999-2013)",
+    "Top U.S. Causes of Death",
     
     theme = "styles.css",
     
@@ -16,15 +16,15 @@ shinyUI(
                p("The data was collected and published by the CDC (Centers for Disease Control and Prevention) and accessed through data.gov."),
                p("The dataset can be found through this ",  a("data.gov ", href ="http://catalog.data.gov/dataset/age-adjusted-death-rates-for-the-top-10-leading-causes-of-death-united-states-2013/resource/0e603f1d-31bf-4809-8f10-a994b305b379"), "link."),
                h1("Our analysis"),
-               textOutput("analysis")
-               
+               #textOutput("analysis")
+               p("")
              ) 
     ),
     
-    tabPanel("Mortality Growth By State & Cause",
+    tabPanel("Growth By State & Cause",
        sidebarLayout(
          
-         sidebarPanel(
+         sidebarPanel(h4("View the mortality rate growth or decline by state and cause"),
            # Widget 1: Select box for death cause
            selectInput(
              "cause", label = h3("Choose a cause of death:"),
@@ -60,10 +60,10 @@ shinyUI(
          mainPanel(plotlyOutput("plot"))
        )),
 
-  tabPanel("Mortality Distribution",
+  tabPanel("State Distribution",
      sidebarLayout(
        
-       sidebarPanel(
+       sidebarPanel(h4("View the mortality distribution across the U.S. by year and cause"),
          # Widget 1: slider input for year
          sliderInput("year", label = h3("Year"), min = 1999, 
           max = 2013, value = 1, sep = "", animate= animationOptions(interval=500, loop=TRUE)
@@ -90,10 +90,10 @@ shinyUI(
   
   ),
   
-  tabPanel("Mortality Cause By Year",
+  tabPanel("Causes By Year",
      sidebarLayout(
        
-       sidebarPanel(
+       sidebarPanel(h4("View the mortality rate for a given year in the U.S."),
          selectInput("year2", label = h3("Choose a year:"), 
                      choices = list("1999" = '1999', "2000" = '2000', "2001" = '2001', "2002" = '2002',
                                     "2003" = '2003', "2004" = '2004', "2005" = '2005', "2006" = '2006',
@@ -113,7 +113,6 @@ shinyUI(
   ),
   tabPanel("Totals",
       plotlyOutput("total_bar")
-           
   )
   
 ))

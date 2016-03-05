@@ -4,7 +4,7 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.5em;
+    font-size: 1em;
     
 	background-image: -moz-linear-gradient(top, rgba(0,0,0,.5), rgba(0,0,0,.5)), url('./img/background.jpg');
     background-image: -webkit-linear-gradient(top, rgba(0,0,0,.5), rgba(0,0,0,.5)), url('../img/background.jpg');
@@ -17,8 +17,14 @@ body {
     background-size: cover;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3 {
     font-family: 'Raleway', sans-serif;
+}
+
+h4 {
+    font-family: 'Montserrat', sans-serif;
+    color: dodgerblue;
+    line-height: 1.5em;
 }
 
 h1, p {
@@ -29,10 +35,6 @@ h1 {
     font-size: 4em;
     margin-top: .75em;
     margin-bottom: .75em;
-}
-
-h3 {
-    font-size: 2em;
 }
 
 p {
@@ -48,14 +50,15 @@ a:hover {
     color: deepskyblue;
 }
 
-.svg-container {
-    
+.plotly {
+    margin-bottom: 7em;
 }
 
-svg {
+.main-svg {
     padding: 1em;
     border-radius: .5em;
     width: inherit;
+    height: calc(100% + 5em);
 }
 
 .well {
@@ -73,7 +76,7 @@ svg {
 .selectize-input .item {
     color: red;
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.25em;
+    font-size: 1.5em;
 }
 
 .navbar {
@@ -92,6 +95,9 @@ svg {
 	color: darkblue !important;
 	text-transform: uppercase;
 	font-family: 'Montserrat', sans-serif;
+    font-size: 1.25em;
+    padding-right: 1em;
+    padding-left: 1em;
 }
 
 .navbar-nav > .active > a,
@@ -102,6 +108,7 @@ svg {
     border-width: .2em;
     border-color: dodgerblue;
     border-style: solid;
+    padding: 1em;
 }
 
 .nav > li > a:hover {
@@ -111,6 +118,7 @@ svg {
 .navbar-brand {
 	font-family: 'Montserrat', sans-serif;
 	color: midnightblue !important;
+    font-size: 1.5em;
 }
 
 */
