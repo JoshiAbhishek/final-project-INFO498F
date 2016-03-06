@@ -19,16 +19,11 @@ Unique_Death_Causes <- function(data) {
 Death_Cause_Totals <- function(data) {
   data[,5] <- as.numeric(as.character(data[,5]))
   
-  death_causes_grouped_by_year <- data %>% group_by(YEAR)
+  death_causes <- data %>% filter(STATE == 'United States' & CAUSE_NAME != 'All Causes')
   
-  death_causes_by_name_by_year <-
-    death_causes_grouped_by_year %>% group_by(CAUSE_NAME)
+  death_totals_by_name <- death_causes %>% group_by(CAUSE_NAME) %>% summarise(Death_Sum = sum(DEATHS))
   
-  total_sum_by_death_cause <-
-    death_causes_by_name_by_year %>% filter(STATE == 'United States') %>%
-    select(DEATHS) %>% filter(CAUSE_NAME != 'All Causes')
-  
-  return (total_sum_by_death_cause)
+  return (death_totals_by_name)
 }
 
 
@@ -135,16 +130,11 @@ Build_Yearly_Deaths_Chart <- function(data, year) {
 Build_Total_Death_Chart <-function(data) {
   data[,5] <- as.numeric(as.character(data[,5]))
   
-  death_causes_grouped_by_year <- data %>% group_by(YEAR)
+  death_causes <- data %>% filter(STATE == 'United States' & CAUSE_NAME != 'All Causes')
   
-  death_causes_by_name_by_year <-
-    death_causes_grouped_by_year %>% group_by(CAUSE_NAME)
+  death_totals_by_name <- death_causes %>% group_by(CAUSE_NAME) %>% summarise(Death_Sum = sum(DEATHS))
   
-  total_sum_by_death_cause <-
-    death_causes_by_name_by_year %>% filter(STATE == 'United States') %>%
-    select(DEATHS) %>% filter(CAUSE_NAME != 'All Causes')
-  
-  plot_ly(total_sum_by_death_cause, x = CAUSE_NAME, y = DEATHS, type = "bar") %>%
+  plot_ly(death_totals_by_name, x = CAUSE_NAME, y = Death_Sum, type = "bar") %>%
     layout(title = "Total Deaths (1999-2013) By Cause") %>%
     return()
 }

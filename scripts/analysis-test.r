@@ -17,15 +17,12 @@ analysis <- function(dataset) {
   
   #What have been the leading causes of death in order from 1999 to 2013?
   
-  death_causes_grouped_by_year <- data %>% group_by(YEAR) 
-  print(death_causes_grouped_by_year)
+  death_causes <- data %>% filter(STATE == 'United States' & CAUSE_NAME != 'All Causes')
+  print(death_causes)
   
-  death_causes_by_name_by_year <- death_causes_grouped_by_year %>% group_by(CAUSE_NAME)
-  print(year_grouped_death_causes)
-  
-  total_sum_by_death_cause <- death_causes_by_name_by_year %>% filter(STATE == 'United States') %>% select(DEATHS) %>% filter(CAUSE_NAME != 'All Causes')
-  print(total_sum_by_death_cause)
-  
+  death_totals_by_name <- death_causes %>% group_by(CAUSE_NAME) %>% summarise(Death_Sum = sum(DEATHS))
+  print(death_totals_by_name)
+
   #What causes of death have grown the most in the past 14 years from 1999 to 2013?
   
   deaths_filtered <- data %>% filter(STATE == 'United States') %>% select(YEAR, CAUSE_NAME, DEATHS) %>% filter(CAUSE_NAME != 'All Causes')
