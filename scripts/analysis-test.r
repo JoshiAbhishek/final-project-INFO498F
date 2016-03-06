@@ -20,7 +20,7 @@ analysis <- function(dataset) {
   death_causes <- data %>% filter(STATE == 'United States' & CAUSE_NAME != 'All Causes')
   print(death_causes)
   
-  death_totals_by_name <- death_causes %>% group_by(CAUSE_NAME) %>% summarise(Death_Sum = sum(DEATHS))
+  death_totals_by_name <- death_causes %>% group_by(CAUSE_NAME) %>% summarise(Death_Sum = sum(DEATHS)) %>% arrange(Death_Sum)
   print(death_totals_by_name)
 
   #What causes of death have grown the most in the past 14 years from 1999 to 2013?
@@ -39,7 +39,7 @@ analysis <- function(dataset) {
   
   deaths_2013 <- mutate(deaths_2013, Diff = deaths_2013$DEATHS - deaths_1999$DEATHS)
   
-  deaths_diff_2013_1999 <- deaths_2013 <- deaths_2013 %>% select(CAUSE_NAME, Diff)
+  deaths_diff_2013_1999 <- deaths_2013 <- deaths_2013 %>% select(CAUSE_NAME, Diff) %>% arrange(Diff)
   print(deaths_diff_2013_1999)
   
   max_death_cause_growth <- deaths_diff_2013_1999 %>% filter(Diff == max(Diff))

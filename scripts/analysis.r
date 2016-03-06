@@ -21,7 +21,7 @@ Death_Cause_Totals <- function(data) {
   
   death_causes <- data %>% filter(STATE == 'United States' & CAUSE_NAME != 'All Causes')
   
-  death_totals_by_name <- death_causes %>% group_by(CAUSE_NAME) %>% summarise(Death_Sum = sum(DEATHS))
+  death_totals_by_name <- death_causes %>% group_by(CAUSE_NAME) %>% summarise(Death_Sum = sum(DEATHS)) %>% arrange(Death_Sum)
   
   return (death_totals_by_name)
 }
@@ -45,7 +45,7 @@ Diff_2013_1999 <- function() {
     mutate(deaths_2013, Diff = deaths_2013$DEATHS - deaths_1999$DEATHS)
   
   deaths_diff_2013_1999 <-
-    deaths_2013 <- deaths_2013 %>% select(CAUSE_NAME, Diff)
+    deaths_2013 <- deaths_2013 %>% select(CAUSE_NAME, Diff) %>% arrange(Diff)
   
   return(deaths_diff_2013_1999)
 }
