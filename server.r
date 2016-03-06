@@ -28,8 +28,4 @@ shinyServer(function(input, output) {
   output$year_bar <- renderPlotly({
     Build_Deaths_By_Year_Bar_Chart(top_deaths, input$year2)
   })
-  
-  output$analysis <- renderText({
-    eval(parse(text = Max_Cause_Growth(top_deaths)))
-  })
 })
