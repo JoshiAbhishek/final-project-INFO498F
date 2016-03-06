@@ -13,6 +13,10 @@ shinyServer(function(input, output) {
     make_line_plot(top_deaths, input$cause, input$location)
   })
   
+  output$plot_2 <- renderPlotly({ 
+    make_age_adjusted_plot(top_deaths, input$cause, input$location)
+  })
+  
   output$map <- renderPlotly({ 
     build_map(top_deaths, input$year, input$causes)  
   })
