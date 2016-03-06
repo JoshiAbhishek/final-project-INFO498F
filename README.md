@@ -17,7 +17,7 @@ During our project, we sought to answer four major questions:
 - What causes of death have declined the most in the past 14 years from 1999 to 2013?
 - What is the proportional relation between causes of death most recently? How has it changed in the past 14 years from 1999 to 2013
 
-We chose to answer these questions with multiple data visualizations. To summarize our findings, we found that the leading causes of deaths in total from 1999 to 2013 included Cancer and Disease of Heart, with Pneumonitis and Parkinson's Disease as the lowest.
+We chose to answer these questions with multiple data visualizations. To summarize our findings, we found that the leading causes of deaths in total from 1999 to 2013 included Cancer (549.8k) and Disease of Heart (725.2k), with Pneumonitis (15.3k) and Parkinson’s Disease (14.6k) as the lowest.
 
 From 1999 to 2013, Alzeihmer's Disease grew the most with 40,231 more deaths in 2013 than 1999; Diseases of Heart declined the most with 114,087 deaths less in 2013 than 1999.
 

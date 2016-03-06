@@ -42,6 +42,17 @@ p {
     font-size: 1.5em;
 }
 
+ol {
+    margin-bottom: 1.5em;
+}
+
+ol li {
+    font-size: 1.5em;
+    color: lightskyblue;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: .2em;
+}
+
 a {
     color: lightskyblue;
 }
@@ -51,7 +62,7 @@ a:hover {
 }
 
 .plotly {
-    margin-bottom: 7em;
+    margin-bottom: 10em;
 }
 
 .main-svg {
@@ -119,6 +130,18 @@ a:hover {
 	font-family: 'Montserrat', sans-serif;
 	color: midnightblue !important;
     font-size: 1.5em;
+}
+
+#year_bar .main-svg, #total_bar .main-svg {
+    height: calc(100% + 16em);
+}
+
+#year_bar .g-xtitle, #total_bar .g-xtitle {
+    display: none;
+}
+
+#year_bar, #total_bar {
+    margin-bottom: 21em;
 }
 
 */
