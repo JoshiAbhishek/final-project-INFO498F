@@ -103,8 +103,9 @@ shinyUI(
                             )
                ),
                
-               mainPanel(plotlyOutput("plot"),
-                         plotlyOutput("plot_2")
+               mainPanel(br(), plotlyOutput("plot"),
+                         br(), br(), br(),
+                         plotlyOutput("plot_2"), br()
                )
                
              )),
@@ -131,7 +132,7 @@ shinyUI(
                ),
                
                mainPanel(
-                 plotlyOutput("map")
+                 br(), plotlyOutput("map")
                ) 
                
                
@@ -152,9 +153,9 @@ shinyUI(
                ),
                
                mainPanel(
-                 plotlyOutput("pie"),
+                 br(), plotlyOutput("pie"),
+                 br(), br(), br(),
                  plotlyOutput("year_bar")
-                 
                ) 
                
              )
