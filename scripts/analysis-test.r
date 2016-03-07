@@ -5,7 +5,7 @@ analysis <- function(dataset) {
   
   #data <- dataset
   
-  data <- read.csv("C:/Users/Abhishek/Documents/GitHub/final-project-INFO498F/data/Top_Ten_US_Causes_Of_Death.csv")
+  data <- read.csv("../data/Top_Ten_US_Causes_Of_Death.csv")
   
   data[,5] <- as.numeric(as.character(data[,5]))
   
