@@ -161,7 +161,10 @@ shinyUI(
              )
              
     ),
+    
     tabPanel("Totals",
              plotlyOutput("total_bar")
-    )
+    ),
+    
+    tabPanel("Test")
 ))
