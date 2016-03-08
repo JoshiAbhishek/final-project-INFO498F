@@ -135,7 +135,10 @@ Build_Total_Death_Chart <-function(data) {
   death_totals_by_name <- death_causes %>% group_by(CAUSE_NAME) %>% summarise(Death_Sum = sum(DEATHS))
   
   plot_ly(death_totals_by_name, x = CAUSE_NAME, y = Death_Sum, type = "bar") %>%
-    layout(title = "Total Deaths (1999-2013) By Cause") %>%
+    layout(title = "Total Deaths (1999-2013) By Cause",
+           margin = list(t = 100, b = 200, l = 50, r = 150, pad = 5),
+           xaxis = list(title = "Cause"),
+           yaxis = list(title = "Total Deaths")) %>%
     return()
 }
 
@@ -148,7 +151,11 @@ Build_Deaths_By_Year_Bar_Chart <- function(data, year) {
   new_data <- deaths_filtered %>% filter(YEAR == year)
   
   plot_ly(new_data, x = CAUSE_NAME, y = DEATHS, type = "bar", marker = list(color = toRGB("orange"))) %>%
-    layout(title = "Total Deaths By Cause") %>%
+    layout(title = "Total Deaths By Cause", 
+           autosize = TRUE, 
+           margin = list(b = 200, r = 150, pad = 5),
+           xaxis = list(title = "Cause"),
+           yaxis = list(title = "Number of Deaths")) %>%
     return()
 }
 

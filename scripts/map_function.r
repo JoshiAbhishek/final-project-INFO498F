@@ -3,7 +3,7 @@
 
 #top_deaths <- read.csv('data/Top_Ten_US_Causes_Of_Death.csv')
 
-build_map <- function(data, year, cause){
+build_map <- function(data, year, cause) {
   map_title <- paste("Distribution of deaths in", year, "caused by", cause)
   
   new_data <- data %>% 
