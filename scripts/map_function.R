@@ -13,6 +13,7 @@ build_map <- function(data, year, cause) {
   
   # Removes the rows with NA in it
   new_data <- new_data[complete.cases(new_data),]
+  new_data <- new_data[new_data$DEATHS != "x",]
   
   # give state boundaries a white border
   l <- list(color = toRGB("white"), width = 2)
