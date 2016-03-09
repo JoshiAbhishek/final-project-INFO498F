@@ -1,4 +1,4 @@
-/*
+
 
 @import url(http://fonts.googleapis.com/css?family=Raleway|Montserrat);
 
@@ -132,6 +132,7 @@ a:hover {
     font-size: 1.5em;
 }
 
+/*
 #year_bar .main-svg, #total_bar .main-svg {
     height: calc(100% + 16em);
 }
@@ -139,6 +140,7 @@ a:hover {
 #year_bar .g-xtitle, #total_bar .g-xtitle {
     display: none;
 }
+
 
 #year_bar, #total_bar {
     margin-bottom: 21em;
