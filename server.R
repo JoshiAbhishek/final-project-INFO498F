@@ -4,8 +4,8 @@ library(shiny)
 
 top_deaths <- read.csv('data/Top_Ten_US_Causes_Of_Death.csv')
 source('scripts/plot_function.R')
-source('scripts/map_function.r')
-source('scripts/analysis.r')
+source('scripts/map_function.R')
+source('scripts/analysis.R')
 
 shinyServer(function(input, output) {
   

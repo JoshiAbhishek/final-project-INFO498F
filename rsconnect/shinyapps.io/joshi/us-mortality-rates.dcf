@@ -1,0 +1,9 @@
+name: us-mortality-rates
+account: joshi
+server: shinyapps.io
+appId: 87524
+bundleId: 391710
+url: https://joshi.shinyapps.io/us-mortality-rates/
+when: 1457566895.17689
+asMultiple: FALSE
+asStatic: FALSE
