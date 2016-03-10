@@ -60,3 +60,30 @@ The full list of growth or decline in number of deaths among causes of death fro
 - Diseases of Heart: -114,087 (decline)
 
 During 1999, Cancer and Diseases of Heart accounted for over 60% of deaths - 27.1% and 35.8% respectively. During 2013, both causes still accounted for over 57% of deaths - 28.2% and 29.4% respectively.
+
+##Technical Aspects
+
+This project was all done in R using RStudio.
+###Packages Used:
+- dplyr 
+- plotly 
+- shiny
+
+## Files
+### plot_function.R
+- Creates two line plots: number of deaths and age adjusted death rates by location and year
+
+### map_function.R
+- Shows the distribution of the death rates by year for specific causes.
+
+### analysis.R
+- Proportion of the death rate per given year in the U.S and bar graph of total deaths by year.
+- Contains functions that calculates or creates:
+	-  total number of deaths from the top causes from 1999 to 2013, 
+	-  the unique death causes, 
+	-  difference in death totals from 1999 to 2013 by cause of death, 
+	-  cause of death with the maximum growth from 1999 to 2013, 
+	-  cause of death with the minimum growth from 1999 to 2013.
+	- a bar graph of the total number of deaths from the top causes by given year
+	- a pie chart of the total number of deaths from the top causes by given year
+	- a bar graph of total deaths per cause from 1999 to 2013
