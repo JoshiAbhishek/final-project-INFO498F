@@ -1,7 +1,5 @@
 #Final Project group FB7
-#Visualization for number of deaths per year
-
-#top_deaths <- read.csv('data/Top_Ten_US_Causes_Of_Death.csv')
+#Visualization for the distrbution of the number of deaths per year
 
 build_map <- function(data, year, cause) {
   map_title <- paste("Distribution of deaths in", year, "caused by", cause)
@@ -13,6 +11,7 @@ build_map <- function(data, year, cause) {
   
   # Removes the rows with NA in it
   new_data <- new_data[complete.cases(new_data),]
+  # Removes the rows with "x" in it
   new_data <- new_data[new_data$DEATHS != "x",]
   
   # give state boundaries a white border
@@ -25,7 +24,7 @@ build_map <- function(data, year, cause) {
     projection = list(type = 'albers usa')
   )
   
-  
+  # plots map with the distribution of deaths in each state for a given year
   plot_ly(new_data, z = DEATHS, text = paste("There were", DEATHS, "total deaths in", STATE), 
           type = 'choropleth', locations = code, 
           locationmode = 'USA-states', color = "Set3",
