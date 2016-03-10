@@ -122,7 +122,7 @@ Build_Yearly_Deaths_Chart <- function(data, year) {
   new_data <- deaths_filtered %>% filter(YEAR == year)
   
   plot_ly(new_data, labels = CAUSE_NAME, values = DEATHS, type = "pie", hole = ".5", showLegend = "T") %>%
-    layout(title = "Deaths By Cause Name") %>%
+    layout(title = paste("Total Deaths By Cause for", year)) %>%
     return()
 }
 
@@ -151,7 +151,7 @@ Build_Deaths_By_Year_Bar_Chart <- function(data, year) {
   new_data <- deaths_filtered %>% filter(YEAR == year)
   
   plot_ly(new_data, x = CAUSE_NAME, y = DEATHS, type = "bar", marker = list(color = toRGB("orange"))) %>%
-    layout(title = "Total Deaths By Cause",
+    layout(title = paste("Total Deaths By Cause for", year),
            margin = list(b = 200, r = 160, pad = 0),
            xaxis = list(title = "Cause"),
            yaxis = list(title = "Number of Deaths")) %>%
