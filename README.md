@@ -1,6 +1,6 @@
 #About this project
 
-> **View this project at [Link]()**
+> **View this project at this [link.](https://joshi.shinyapps.io/us-mortality-rates/)**
 
 This informatics (INFO 498F) project is based off of a dataset of death rates for the top leading causes of death in the United States, including mortality patterns from 1999 through 2013, and by state of residence for selected year and cause of death.
 
