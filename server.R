@@ -18,7 +18,7 @@ shinyServer(function(input, output) {
   })
   
   output$map <- renderPlotly({
-    build_map(top_deaths, input$year, input$causes)
+    build_map(top_deaths, input$years, input$causes)
   })
   
   output$pie <- renderPlotly({

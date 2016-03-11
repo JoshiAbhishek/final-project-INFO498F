@@ -237,7 +237,7 @@ shinyUI(
           h4("View the mortality distribution across the U.S. by year and cause"),
           # Widget 1: slider input for year
           sliderInput(
-            "year",
+            "years",
             label = h3("Year"),
             min = 1999,
             max = 2013,
