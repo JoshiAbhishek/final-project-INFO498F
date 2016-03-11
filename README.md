@@ -1,4 +1,4 @@
-#About this project
+#About
 
 > **View this project at the following [link.](https://joshi.shinyapps.io/us-mortality-rates/)**
 
