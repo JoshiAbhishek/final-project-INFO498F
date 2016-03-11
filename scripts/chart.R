@@ -1,6 +1,7 @@
 library(dplyr)
 library(plotly)
 
-test <- function(df) {
+chart <- function(df) {
+  
   return(NULL)
 }

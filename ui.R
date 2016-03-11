@@ -2,8 +2,9 @@
 library(plotly)
 library(dplyr)
 library(shiny)
-shinyUI(
-  navbarPage(
+library(ggplot2)
+
+shinyUI(navbarPage(
     "Top U.S. Causes of Death",
     
     theme = "styles.css",
@@ -164,5 +165,7 @@ shinyUI(
              plotlyOutput("total_bar")
     ),
     
-    tabPanel("Test")
+    tabPanel("Totals by state",
+             plotlyOutput("state_bar")
+    )
 ))

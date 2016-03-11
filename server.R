@@ -33,4 +33,8 @@ shinyServer(function(input, output) {
   output$year_bar <- renderPlotly({
     Build_Deaths_By_Year_Bar_Chart(top_deaths, input$year2)
   })
+  
+  output$state_bar <- renderPlotly({
+    chart(top_deaths)
+  })
 })

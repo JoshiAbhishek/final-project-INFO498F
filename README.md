@@ -1,4 +1,4 @@
-#About this project
+x #About this project
 
 > **View this project at this [link.](https://joshi.shinyapps.io/us-mortality-rates/)**
 
