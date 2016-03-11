@@ -136,7 +136,7 @@ Build_Total_Death_Chart <-function(data) {
   
   plot_ly(death_totals_by_name, x = Death_Sum, y = CAUSE_NAME, type = "bar", orientation = "h") %>%
     layout(title = "Total Deaths (1999-2013) By Cause",
-           margin = list(t = 50, b = 20, l = 350, r = 50, pad = 5, autoexpand = TRUE),
+           margin = list(t = 50, b = 20, l = 650, r = 50, pad = 5, autoexpand = TRUE),
            # t = 100, b = 200, l = 50, r = 170, pad = 5,
            xaxis = list(title = "Cause"),
            yaxis = list(title = "Total Deaths")) %>%
