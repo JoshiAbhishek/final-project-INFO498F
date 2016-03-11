@@ -1,13 +1,15 @@
 library("dplyr")
 
-#Questions:
+### Questions:
 
-#What have been the leading causes of death in order from 1999 to 2013?
-#What causes of death have grown the most in the past 14 years from 1999 to 2013?
-#What causes of death have declined the most in the past 14 years from 1999 to 2013?
-#What is the proportional relation between causes of death most recently? How has it changed in the past 14 years from 1999 to 2013
+## What have been the leading causes of death in order from 1999 to 2013?
+## What causes of death have grown the most in the past 14 years from 1999 to 2013?
+## What causes of death have declined the most in the past 14 years from 1999 to 2013?
+## What is the proportional relation between causes of death most recently?
+ # How has it changed in the past 14 years from 1999 to 2013?
 
-#Returns the unique causes of death names
+# Returns the unique causes of death names
+
 Unique_Death_Causes <- function(data) {
   unique_causes_of_death <-
     data %>% distinct(CAUSE_NAME) %>% select(CAUSE_NAME)
@@ -15,21 +17,26 @@ Unique_Death_Causes <- function(data) {
   return(unique_causes_of_death)
 }
 
-#Returns the total number of deaths caused from 1999 to 2013, by the cause of death
+# Returns the total number of deaths caused from 1999 to 2013, by the cause of death
+
 Death_Cause_Totals <- function(data) {
-  data[,5] <- as.numeric(as.character(data[,5]))
+  data[, 5] <- as.numeric(as.character(data[, 5]))
   
-  death_causes <- data %>% filter(STATE == 'United States' & CAUSE_NAME != 'All Causes')
+  death_causes <-
+    data %>% filter(STATE == 'United States' &
+                      CAUSE_NAME != 'All Causes')
   
-  death_totals_by_name <- death_causes %>% group_by(CAUSE_NAME) %>% summarise(Death_Sum = sum(DEATHS)) %>% arrange(Death_Sum)
+  death_totals_by_name <-
+    death_causes %>% group_by(CAUSE_NAME) %>% summarise(Death_Sum = sum(DEATHS)) %>% arrange(Death_Sum)
   
   return (death_totals_by_name)
 }
 
 
-#Returns the difference in death totals from 1999 to 2013 by cause of death
+# Returns the difference in death totals from 1999 to 2013 by cause of death
+
 Diff_2013_1999 <- function() {
-  data[,5] <- as.numeric(as.character(data[,5]))
+  data[, 5] <- as.numeric(as.character(data[, 5]))
   
   deaths_filtered <-
     data %>% filter(STATE == 'United States') %>%
@@ -45,14 +52,16 @@ Diff_2013_1999 <- function() {
     mutate(deaths_2013, Diff = deaths_2013$DEATHS - deaths_1999$DEATHS)
   
   deaths_diff_2013_1999 <-
-    deaths_2013 <- deaths_2013 %>% select(CAUSE_NAME, Diff) %>% arrange(Diff)
+    deaths_2013 <-
+    deaths_2013 %>% select(CAUSE_NAME, Diff) %>% arrange(Diff)
   
   return(deaths_diff_2013_1999)
 }
 
-#Returns the cause of death with the maximum growth from 1999 to 2013
+# Returns the cause of death with the maximum growth from 1999 to 2013
+
 Max_Cause_Growth <- function(data) {
-  data[,5] <- as.numeric(as.character(data[,5]))
+  data[, 5] <- as.numeric(as.character(data[, 5]))
   
   deaths_filtered <-
     data %>% filter(STATE == 'United States') %>%
@@ -78,7 +87,7 @@ Max_Cause_Growth <- function(data) {
 
 #Returns the cause of death with the minimum growth from 1999 to 2013
 Min_Cause_Growth <- function() {
-  data[,5] <- as.numeric(as.character(data[,5]))
+  data[, 5] <- as.numeric(as.character(data[, 5]))
   
   deaths_filtered <-
     data %>% filter(STATE == 'United States') %>%
@@ -102,9 +111,11 @@ Min_Cause_Growth <- function() {
   return(min_death_cause_growth)
 }
 
-#Returns the data, filtered by the country being the United States and the cause of death being everything but "All Causes"
+# Returns the data, filtered by the country being the United States and the cause of death being 
+# everything but "All Causes"
+
 Deaths_Filtered <- function(data) {
-  data[,5] <- as.numeric(as.character(data[,5]))
+  data[, 5] <- as.numeric(as.character(data[, 5]))
   
   deaths_filtered <-
     data %>% filter(STATE == 'United States') %>%
@@ -113,7 +124,8 @@ Deaths_Filtered <- function(data) {
   return(deaths_filtered)
 }
 
-#Returns a pie chart showing the proportional deaths by cause of death for the given year
+# Returns a pie chart showing the proportional deaths by cause of death for the given year
+
 Build_Yearly_Deaths_Chart <- function(data, year) {
   deaths_filtered <-
     data %>% filter(STATE == 'United States') %>%
@@ -121,29 +133,56 @@ Build_Yearly_Deaths_Chart <- function(data, year) {
   
   new_data <- deaths_filtered %>% filter(YEAR == year)
   
-  plot_ly(new_data, labels = CAUSE_NAME, values = DEATHS, type = "pie", hole = ".5", showLegend = "T") %>%
+  plot_ly(
+    new_data,
+    labels = CAUSE_NAME,
+    values = DEATHS,
+    type = "pie",
+    hole = ".5",
+    showLegend = "T"
+  ) %>%
     layout(title = paste("Total Deaths By Cause for", year)) %>%
     return()
 }
 
-#Builds a bar chart of total deaths by cause name for 1999-2013
-Build_Total_Death_Chart <-function(data) {
-  data[,5] <- as.numeric(as.character(data[,5]))
+# Builds a bar chart of total deaths by cause name for 1999-2013
+
+Build_Total_Death_Chart <- function(data) {
+  data[, 5] <- as.numeric(as.character(data[, 5]))
   
-  death_causes <- data %>% filter(STATE == 'United States' & CAUSE_NAME != 'All Causes')
+  death_causes <-
+    data %>% filter(STATE == 'United States' &
+                      CAUSE_NAME != 'All Causes')
   
-  death_totals_by_name <- death_causes %>% group_by(CAUSE_NAME) %>% summarise(Death_Sum = sum(DEATHS))
+  death_totals_by_name <-
+    death_causes %>% group_by(CAUSE_NAME) %>% summarise(Death_Sum = sum(DEATHS))
   
-  plot_ly(death_totals_by_name, x = Death_Sum, y = CAUSE_NAME, type = "bar", orientation = "h") %>%
-    layout(title = "Total Deaths (1999-2013) By Cause",
-           margin = list(t = 50, b = 20, l = 650, r = 50, pad = 5, autoexpand = TRUE),
-           # t = 100, b = 200, l = 50, r = 170, pad = 5,
-           xaxis = list(title = "Cause"),
-           yaxis = list(title = "Total Deaths")) %>%
+  plot_ly(
+    death_totals_by_name,
+    x = Death_Sum,
+    y = CAUSE_NAME,
+    type = "bar",
+    orientation = "h"
+  ) %>%
+    layout(
+      title = "Total Deaths (1999-2013) By Cause",
+      margin = list(
+        t = 50,
+        b = 20,
+        l = 350,
+        r = 50,
+        pad = 5,
+        autoexpand = TRUE
+      ),
+      # t = 100, b = 200, l = 50, r = 170, pad = 5,
+      xaxis = list(title = "Cause"),
+      yaxis = list(title = "Total Deaths")
+    ) %>%
     return()
 }
 
-#Builds a bar chart for the death rate per year
+# Builds a bar chart for the death rate per year
+
 Build_Deaths_By_Year_Bar_Chart <- function(data, year) {
   deaths_filtered <-
     data %>% filter(STATE == 'United States') %>%
@@ -151,23 +190,35 @@ Build_Deaths_By_Year_Bar_Chart <- function(data, year) {
   
   new_data <- deaths_filtered %>% filter(YEAR == year)
   
-  plot_ly(new_data, x = CAUSE_NAME, y = DEATHS, type = "bar", marker = list(color = toRGB("orange"))) %>%
-    layout(title = paste("Total Deaths By Cause for", year),
-           margin = list(b = 200, r = 160, pad = 0),
-           xaxis = list(title = "Cause"),
-           yaxis = list(title = "Number of Deaths")) %>%
+  plot_ly(
+    new_data,
+    x = CAUSE_NAME,
+    y = DEATHS,
+    type = "bar",
+    marker = list(color = toRGB("orange"))
+  ) %>%
+    layout(
+      title = paste("Total Deaths By Cause for", year),
+      margin = list(b = 200, r = 160, pad = 0),
+      xaxis = list(title = "Cause"),
+      yaxis = list(title = "Number of Deaths")
+    ) %>%
     return()
 }
 
-#Builds a bar chart for every year's death rate per cause
+# Builds a bar chart for every year's death rate per cause
+
 Build_Total_Bar_Chart <- function(data) {
-  data[,5] <- as.numeric(as.character(data[,5]))
+  data[, 5] <- as.numeric(as.character(data[, 5]))
   
   deaths_filtered <-
     data %>% filter(STATE == 'United States') %>%
     select(YEAR, CAUSE_NAME, DEATHS) %>% filter(CAUSE_NAME != 'All Causes')
   
-  plot_ly(deaths_filtered, x = YEAR, y = DEATHS, type = "bar") %>%
+  plot_ly(deaths_filtered,
+          x = YEAR,
+          y = DEATHS,
+          type = "bar") %>%
     layout(barmode = "stack") %>%
     return()
 }

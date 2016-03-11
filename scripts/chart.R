@@ -9,5 +9,5 @@ chart <- function(df) {
   
   #plot_ly(df, type = 'bar', x =, y =, orientation = 'h') %>%
   #  layout() %>%
-    return(NULL)
+  return(NULL)
 }

@@ -9,17 +9,16 @@ source('scripts/analysis.R')
 source('scripts/chart.R')
 
 shinyServer(function(input, output) {
-  
-  output$plot <- renderPlotly({ 
+  output$plot <- renderPlotly({
     make_line_plot(top_deaths, input$cause, input$location)
   })
   
-  output$plot_2 <- renderPlotly({ 
+  output$plot_2 <- renderPlotly({
     make_age_adjusted_plot(top_deaths, input$cause, input$location)
   })
   
-  output$map <- renderPlotly({ 
-    build_map(top_deaths, input$year, input$causes)  
+  output$map <- renderPlotly({
+    build_map(top_deaths, input$year, input$causes)
   })
   
   output$pie <- renderPlotly({
