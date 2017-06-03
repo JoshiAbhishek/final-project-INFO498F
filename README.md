@@ -1,4 +1,4 @@
-#About
+# About
 
 > **View this project at the following [link.](https://joshi.shinyapps.io/us-mortality-rates/)**
 
@@ -8,7 +8,7 @@ The data was collected and published by the CDC (Centers for Disease Control and
 
 The dataset can be found through this [data.gov](http://catalog.data.gov/dataset/age-adjusted-death-rates-for-the-top-10-leading-causes-of-death-united-states-2013/resource/0e603f1d-31bf-4809-8f10-a994b305b379) link.
 
-##Our analysis
+## Our analysis
 
 During our project, we sought to answer four major questions:
 
@@ -61,10 +61,10 @@ The full list of growth or decline in number of deaths among causes of death fro
 
 During 1999, Cancer and Diseases of Heart accounted for over 60% of deaths - 27.1% and 35.8% respectively. During 2013, both causes still accounted for over 57% of deaths - 28.2% and 29.4% respectively.
 
-##Technical Aspects
+## Technical Aspects
 
 This project was all done in R using RStudio.
-###Packages Used:
+### Packages Used:
 - dplyr 
 - plotly 
 - shiny
